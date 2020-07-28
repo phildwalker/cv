@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## My pagedown rendered CV
 
 __Switch to googlesheets__
@@ -39,8 +38,3 @@ The main files are:
 The [blog post I originally wrote about this process](https://livefreeordichotomize.com/2019/09/04/building_a_data_driven_cv_with_r/) used an older version of this document. I think that the new googlesheets method is easier to maintain and extend, however the old version is alive and well [here.](https://github.com/nstrayer/cv/releases/tag/1.0)
 
 
-||||||| merged common ancestors
-=======
-# cv
-place for resume etc
->>>>>>> 5de162858a76f3af3c6c1492546cb58b85598bea
