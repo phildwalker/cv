@@ -1,12 +1,14 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: "Phil Walker's Resume"
+author: Phil Walker
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
-    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
     # set it to true for a self-contained HTML page but it'll take longer to render
+    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
     self_contained: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -27,7 +29,8 @@ library(glue)
 using_googlesheets <- TRUE
 
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1Si-4Q00Ub298C63qRFM_539Wmnu-kdvgLCvVwjFSPo4/edit#gid=1730172225"
+  #"https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
@@ -37,7 +40,7 @@ sheet_is_publicly_readable <- TRUE
 # Is the goal of this knit to build a document that is exported to PDF? If so
 # set this to true to have links turned into footnotes at the end of the
 # document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- TRUE
 
 
 # A global (gasp) variable that holds all the links that were inserted for
@@ -63,6 +66,7 @@ position_data <- position_data %>%
     section = case_when(
       section %in% c('research_positions', 'industry_positions') ~ 'positions', 
       section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% c('certificates') ~ 'certificates',
       TRUE ~ section
     )
   ) 
@@ -73,8 +77,8 @@ position_data <- position_data %>%
 Aside
 ================================================================================
 
-
-![logo](logo.png){width=100%}
+<!-- {width=100%, height = 100%} -->
+![logo](CardMap.png)
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -86,30 +90,54 @@ contact_info %>%
 
 
 
-Language Skills {#skills}
+<!-- Language Skills {#skills} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- skills %>%  -->
+<!--   arrange(desc(level)) %>%  -->
+<!--   build_skill_bars() -->
+<!-- ``` -->
+
+Skills {#skills}
 --------------------------------------------------------------------------------
 
-```{r}
-build_skill_bars(skills)
-```
+__Languages:__ R/RStudio, SAS/Enterprise Guide, SQL, MS Office, Basics of Python, Git, JIRA  
+
+__Applications:__ JMP, Minitab, Tableau, NICE IEX Workflow Management  
+
+__Methodologies:__ Time Series Forecasting, Optimization, Automated Reporting, Metric/KPI development, Lean + Six Sigma manufacturing principles, Agile Development
 
 
-
-Open Source Contributions {#open-source}
+Education {#edu}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+B.S. Industrial Engineering <br>
+M.E. Integrated Tech Mgmt <br>
+California Polytechnic St. Univ, SLO <br>
+Graduated: 2012 | GPA: 3.89
+
+<!-- Open Source Contributions {#open-source} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- All projects available at `github.com/nstrayer/<name>` -->
 
 
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `sbmR`: R package for fitting stochasitic block models
+<!-- - `shinysense`: R package to use sensor data in Shiny apps -->
+<!-- - `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com) -->
+<!-- - `sbmR`: R package for fitting stochasitic block models -->
 
 
-More info {#more-info}
+Certificates {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
+<!-- See more of my work at phildwalker.netlify.app. -->
+__DataCamp__  
+* Data Scientist with R  
+* Machine Learning with R  
+* Spatial Analysis  
+* Network Analysis  
+* Shiny Fundamentals  
 
 
 Disclaimer {#disclaimer}
@@ -117,7 +145,7 @@ Disclaimer {#disclaimer}
 
 Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code: [github.com/phildwalker/cv](https://github.com/phildwalker/cv).
 
 Last updated on `r Sys.Date()`.
 
@@ -126,7 +154,7 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Phil Walker {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -135,16 +163,9 @@ print_text_block(text_blocks, 'intro')
 
 
 
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
-
-```{r}
-position_data %>% print_section('education')
-```
 
 
-
-Selected Positions {data-icon=suitcase}
+Work Experience {data-icon=suitcase data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -152,8 +173,21 @@ position_data %>% print_section('positions')
 ```
 
 
+<!-- Education {data-icon=graduation-cap data-concise=true} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-Selected Writing {data-icon=newspaper}
+<!-- ```{r} -->
+<!-- position_data %>% print_section('education') -->
+<!-- ``` -->
+
+<!-- <br> -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- <br> -->
+
+Recent Projects {data-icon=newspaper data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}

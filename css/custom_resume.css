@@ -1,14 +1,15 @@
 
 * {
   /* Override default right margin for sidebar*/
-  --pagedjs-margin-right: 0.2in !important;
+  --pagedjs-margin-right: 0.1in !important;
   --pagedjs-margin-left: 0;
   --pagedjs-margin-top: 0.2in;
-  --pagedjs-margin-bottom: 0.2in;
+  --pagedjs-margin-bottom: 0.1in;
 }
 
 [data-id="main"] { 
-  padding: 0 0.05in 0 0.05in;
+  padding: 0 0.02in 0 0.02in;
+  font-size: 0.7rem;
 }
 
 [data-id="title"] {
@@ -22,8 +23,8 @@
 
 /* Customize some of the sizing variables */
 :root {
-  --sidebar-width: 12rem !important; /* Shrink sidebar width  */
-  --sidebar-horizontal-padding: 0.02in; /* Reduce sidebar padding */
+  --sidebar-width: 13rem !important; /* Shrink sidebar width  */
+  --sidebar-horizontal-padding: 0.01in; /* Reduce sidebar padding */
 }
 
 [data-id="main"]{
@@ -49,6 +50,7 @@
 
 [data-id="skills"] ul {
   margin: 0.05in 0 0.05in;
+  font-size: 0.35rem;
 }
 
 [data-id="contact"] ul {
