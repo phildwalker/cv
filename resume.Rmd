@@ -102,9 +102,9 @@ contact_info %>%
 Skills {#skills}
 --------------------------------------------------------------------------------
 
-__Languages:__ R/RStudio, SAS/Enterprise Guide, SQL, MS Office, Basics of Python, Git, JIRA  
+__Languages:__ R/RStudio, SQL, Git, SAS/Enterprise Guide, MS Office, Basics of Python, JIRA  
 
-__Applications:__ JMP, Minitab, Tableau, NICE IEX Workflow Management  
+__Applications:__ Shiny, JMP, Minitab, Tableau, NICE IEX Workflow Management  
 
 __Methodologies:__ Time Series Forecasting, Optimization, Automated Reporting, Metric/KPI development, Lean + Six Sigma manufacturing principles, Agile Development
 
