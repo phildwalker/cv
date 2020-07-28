@@ -147,7 +147,7 @@ Made w/ [**pagedown**](https://github.com/rstudio/pagedown).
 
 Source code: [github.com/phildwalker/cv](https://github.com/phildwalker/cv).
 
-Last updated on `r Sys.Date()`.
+<!-- Last updated on `r Sys.Date()`. -->
 
 
 
