@@ -1,0 +1,53 @@
+---
+title: ":Leader Cover Letter"
+author: Phil Walker
+return-address: 
+  - 5082 Garden Village Ct, Apt C
+  - Greensboro, NC 27410
+address:
+  - Volvo Group
+  - 7900 National Service Road 
+  - Greensboro, NC 27409 
+  
+subject: Head of Demand and Inventory Planning/Operational Planning - SML NA
+opening: Dear Hiring Manager,
+closing: Thank you for you consideration,
+signature: Phil Walker
+
+# output: komaletter::komaletter
+output:
+  pagedown::html_letter:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    css: ['css/styles.css'] #, 'resume', 'css/custom_resume.css', 
+    self_contained: true
+---
+
+About Me
+--------------------------------------------------------------------------------
+
+I am an Industrial Engineer (IE) by education (BS and MS from Cal Poly) who has had the good fortune to use my background in
+system driven thinking to drive improvements throughout all of my roles. I cherish opportunities to find creative solutions to the
+large scale challenges and through the partnership with the end customer see those solutions implemented and benefits realized.
+As both a Process Engineer for a manufacturing company and a Sr. Data Analyst within the financial industry I have found that
+effective results come from partnering with the end user and helping them to drive towards strong data driven decisions.
+
+
+Why Head of Inventory/ Operational Planning for SML?
+--------------------------------------------------------------------------------
+
+I am drawn to the opportunity that an advanced analytics resource has to directly benefit not only Cone internally by improving
+the efficiency and effectiveness of the business and clinical departments but also passing along those benefits to patients and
+larger community. I am very impressed with the focus and drive the team has find the cross section between advanced analytical
+tools/techniques and the application of those tools. As an Operations Analyst and Process Engineer, I loved when I was encouraged
+and empowered to solve the hard problems and I see this to be the vision of this role and team at large.
+
+Why Me?
+--------------------------------------------------------------------------------
+
+I believe I would be a strong asset to your team by bringing my industry experience combined with my customer service mindset to
+the challenges of the consultant role. Working at a manufacturing company, I succeeded at balancing the needs of many different
+parties to solve long term challenges, while still ensuring timely resolution of my day to day responsibilities. As a Data Analyst, I spearheaded the cultural transition within my team and across Operations to move from static and often delayed snapshots of raw data towards data rich visualizations with near live data, giving the opportunity for management to solve problems long before they had significant consequences.
+
+I am a creative problem solver whose brings to bear the disciplines of IE and analytics to develop robust solutions. As I have in prior positions, I continue to find and quickly learn tools and techniques to help to provide better service to my customers. I learned
+SAS, R and Tableau at my prior position when looking a address a gap and after meeting those immediate needs I have found ways
+to harness those tools to realize additional benefits.

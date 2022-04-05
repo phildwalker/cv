@@ -1,0 +1,77 @@
+---
+title: "Cover Letter for Volvo Application"
+author: "Phil Walker"
+output:
+  pagedown::html_letter:
+    css: ['css/styles.css'] #'css/custom_letter.css',
+    self_contained: true
+# links-to-footnotes: true
+# number-lines: false
+# paged-footnotes: true
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+editor_options: 
+  chunk_output_type: console
+googlefonts: ["Roboto Condensed", "Raleway"]
+---
+
+<!-- ![The RStudio logo](https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png){.logo} -->
+
+
+<!-- An "aside" is identified with ":::" -->
+
+::: from 
+Phil Walker  
+5082 Garden Village Ct, Apt C  
+Greensboro, NC 27410
+:::
+
+Hiring Manager  
+7900 National Service Road   
+Greensboro, NC 27409
+
+::: date
+`r format(Sys.Date(), "%D")`
+:::
+
+Dear Hiring Manager,
+
+__About Me__
+
+I am an Industrial Engineer (IE) by education (BS and MS from Cal Poly) who has had the good fortune to use my background in
+system driven thinking to drive improvements throughout all of my roles. I cherish opportunities to find creative solutions to the
+large scale challenges and in partnering with the end customer, see those solutions implemented and benefits realized. As a Process Engineer for a manufacturing company, a Sr. Data Analyst within the financial industry, and currently as a Analytics Consultant within the healthcare industry, I have found that effective results come from partnering with the end user and helping them to drive towards strong data driven decisions.
+
+
+__Why Head of Inventory/ Operational Planning for SML?__
+
+I am drawn to the opportunity to the dual responsibilties to not only 
+
+
+I am drawn to the opportunity that an advanced analytics resource has to directly benefit not only Cone internally by improving
+the efficiency and effectiveness of the business and clinical departments but also passing along those benefits to patients and
+larger community. I am very impressed with the focus and drive the team has find the cross section between advanced analytical
+tools/techniques and the application of those tools. As an Operations Analyst and Process Engineer, I loved when I was encouraged
+and empowered to solve the hard problems and I see this to be the vision of this role and team at large.
+
+__Why Me?__
+
+I am 
+
+I believe I would be a strong asset to your team by bringing my industry experience combined with my customer service mindset to
+the challenges of the consultant role. Working at a manufacturing company, I succeeded at balancing the needs of many different
+parties to solve long term challenges, while still ensuring timely resolution of my day to day responsibilities. As a Data Analyst, I spearheaded the cultural transition within my team and across Operations to move from static and often delayed snapshots of raw data towards data rich visualizations with near live data, giving the opportunity for management to solve problems long before they had significant consequences.
+
+I am a creative problem solver whose brings to bear the disciplines of IE and analytics to develop robust solutions. As I have in prior positions, I continue to find and quickly learn tools and techniques to help to provide better service to my customers. I learned SAS, R and Tableau at my prior position when looking a address a gap and after meeting those immediate needs I have found ways to harness those tools to realize additional benefits.
+
+I look forward to hearing from you!
+
+
+<br>
+
+
+Thank you for your consideration,
+
+Phil Walker  
+
+<script src="https://yihui.name/js/center-img.js"></script>

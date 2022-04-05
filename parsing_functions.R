@@ -1,3 +1,4 @@
+library(tidyverse)
 # Regex to locate links in text
 find_link <- regex("
   \\[   # Grab opening square bracket

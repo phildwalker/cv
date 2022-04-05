@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://login.ultipro.com/t/TAN1001/checksession -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Check Session</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- stylesheets -->
+    <link href="./vendor.min.css" rel="stylesheet">
+    <link href="./app.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="resources/js/lib/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+    <!--
+        window.globalVars = {"tenantName":"Tanger Properties Limited Partnership","contextPath":"/t/tan1001/","csrfToken":"fb65419f-a321-4e76-aaec-71f4e071e24d","csrfParameterName":"_csrf","isAuthenticated":false,"registerAllowed":false,"registerUrl":null,"serviceAvailable":true};
+    //-->
+    </script>
+</head><body>
+
+    <script id="cookie-name" type="application/json">JSESSIONID</script>
+    <script src="./crypto.js.download"></script>
+    <script>
+        function getCookies() {
+            var allCookies = document.cookie;
+            var cookies = allCookies.split(';');
+            return cookies.map(function (value) {
+                var parts = value.trim().split('=');
+                if (parts.length === 2) {
+                    return {
+                        name: parts[0].trim(),
+                        value: parts[1].trim()
+                    };
+                }
+            }).filter(function (item) {
+                return item && item.name && item.value;
+            });
+        }
+        function getBrowserSessionId() {
+            var cookies = getCookies().filter(function (cookie) {
+                return (cookie.name == cookieName);
+            });
+            return cookies[0] && cookies[0].value;
+        }
+        function hash(value) {
+            var hash = KJUR.crypto.Util.sha256(value);
+            return hextob64u(hash);
+        }
+        function computeSessionStateHash(clientId, origin, sessionId, salt) {
+            return hash(clientId + origin + sessionId + salt);
+        }
+        function calculateSessionStateResult(origin, message) {
+            try {
+                if (!origin || !message) {
+                    return "error";
+                }
+                var messageParts = message.split(' ');
+                if (messageParts.length !== 2) {
+                    return "error";
+                }
+                var clientId = messageParts[0];
+                var sessionState = messageParts[1];
+                if (!clientId || !sessionState) {
+                    return "error";
+                }
+                var sessionStateParts = sessionState.split('.');
+                if (sessionStateParts.length !== 2) {
+                    return "error";
+                }
+                var clientHash = sessionStateParts[0];
+                var salt = sessionStateParts[1];
+                if (!clientHash || !salt) {
+                    return "error";
+                }
+                var currentSessionId = getBrowserSessionId();
+                var expectedHash = computeSessionStateHash(clientId, origin, currentSessionId, salt);
+                return clientHash === expectedHash ? "unchanged" : "changed";
+            }
+            catch(e) {
+                return "error";
+            }
+        }
+        var cookieName = document.getElementById("cookie-name").textContent.trim();
+        if (cookieName && window.parent !== window) {
+            window.addEventListener("message", function (e) {
+                var result = calculateSessionStateResult("https://login.ultipro.com", e.data);
+                e.source.postMessage(result, e.origin);
+            }, false);
+        }
+    </script>
+
+
+
+</body></html>

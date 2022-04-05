@@ -1,0 +1,199 @@
+$(function () {
+
+    $('.hero .cta .old').bind('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#positions").offset().top
+        }, 500);
+        return false;
+    });
+
+    $('.body-wrapper.position').bind('scroll', function (e) {
+        var dst = $('.body-wrapper').scrollTop();
+        if(dst > 300) {
+            $('.header .button.apply').addClass('active');
+        } else {
+            $('.header .button.apply').removeClass('active');
+        }
+    });
+
+    var location = $(".filters-container .locations").val();
+    var department = $(".filters-container .departments").val();
+
+    $(".filters-container .locations").change(function() {
+        location = $(".filters-container .locations").val();
+        var qs = "?";
+        if(location) {
+            qs += "&location=" + location;
+        }
+        if(department) {
+            qs += "&department=" + department;
+        }
+        var baseurl = window.location.href;
+        if (window.location.href.indexOf('?') > -1) {
+            baseurl = window.location.href.substring(0, window.location.href.indexOf('?'));
+        } else if (window.location.href.indexOf('#') > -1) {
+            baseurl = window.location.href.substring(0, window.location.href.indexOf('#'));
+        }
+        window.location = baseurl + qs + "#positions";
+    });
+
+    $(".filters-container .departments" ).change(function() {
+        department = $(".filters-container .departments").val();
+        var qs = "?";
+        if(location) {
+            qs += "&location=" + location;
+        }
+        if(department) {
+            qs += "&department=" + department;
+        }
+        var baseurl = window.location.href;
+        if (window.location.href.indexOf('?') > -1) {
+            baseurl = window.location.href.substring(0, window.location.href.indexOf('?'));
+        } else if (window.location.href.indexOf('#') > -1) {
+            baseurl = window.location.href.substring(0, window.location.href.indexOf('#'));
+        }
+        window.location = baseurl + qs + "#positions";
+    });
+
+    $(".fancybox").fancybox({
+        helpers: {
+            overlay: {
+                locked: false
+            }
+        },
+        beforeLoad: function(){
+            console.log('loading');
+            document.body.style.overflow = 'hidden';
+        },
+        afterClose: function(){
+            console.log('closed');
+            document.body.style.overflow = 'visible';
+        }
+    });
+
+    $('.jumpTo').click(function(e) {
+        e.preventDefault();
+        document.querySelector($(this).attr('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    var heroBackgroundImage;
+
+    $(function() {
+        heroBackgroundImage = $('#heroBackgroundImage');
+        // $('#heroBackgroundColor').addClass('fade-out');
+        if (heroBackgroundImage) {
+            $(window).scroll(onScroll);
+        }
+    });
+
+    function onScroll() {
+        if (document.body.scrollTop > 50) {
+            heroBackgroundImage.addClass('frosted');
+        } else {
+            heroBackgroundImage.removeClass('frosted');
+        }
+    }
+
+
+    // sharable referral link
+    /*$('[referral-link]').click(function(e) {
+        e.preventDefault()
+        console.log(e.target.href)
+        $.getJSON(e.target.href, function(result) {
+            console.log(result);
+            var link = document.createElement('a');
+            link.href = result.link;
+            link.innerText = 'link mclink';
+            $(e.target).replaceWith(link);
+        });
+        //console.log(e)
+    });*/
+
+
+    $('body').on('click', function (e) {
+        $('[referral-link]').each(function () {
+            //the 'is' for buttons that trigger popups
+            //the 'has' for icons within a button that triggers a popup
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+    });
+
+    if ($('[referral-link]').length) {
+        $('[referral-link]').popover({
+            placement: 'bottom',
+            html: true,
+            content: function() {
+                //console.log('popover')
+                var $btn = $(this);
+                var positionId = $btn.data('position-id');
+                var popoverId = 'referral_' + positionId;
+                var url = '/team/portal/referral-link/' + positionId;
+
+                return getPopover($btn, url, popoverId);
+            }
+        })
+    }
+
+    function getPopover($btn, url, popoverId) {
+        $.getJSON(url, function(result) {
+            //$btn.data('opened', true);
+            var template = $('#popover_template').clone().html();
+            template = template.replace(/{{referral_token}}/g, result.token);
+            template = template.replace(/{{position_title}}/g, $btn.data('position-title'));
+            template = template.replace(/{{position_description}}/g, $btn.data('position-description'));
+            template = template.replace(/{{position_image}}/g, $btn.data('position-image'));
+            $('#' + popoverId).html(template);
+
+            // recenter after template insert
+            var parentCenter = $btn.position().left;
+            var width = $btn.data('bs.popover').$tip.width();
+            var newLeft = parentCenter - (width / 2);
+            newLeft += ($btn.outerWidth() / 2);
+            $btn.data('bs.popover').$tip.css('left', newLeft + 'px');
+
+            addthis.toolbox('.addthis_toolbox');
+
+        })
+        return '<div id="'+ popoverId +'">Loading...</div>';
+    }
+
+
+
+    /*$('[referral-link]').popover({
+        content: function(e) {
+            console.log(e);
+            var $btn = $(this);
+            var positionId = $btn.data('position-id');
+            var popoverId = 'referral_' + positionId;
+            console.log($btn.data)
+            if ($btn.data('opened')) {
+                console.log('has been opened');
+                $btn.popover('show');
+                //return;
+            }
+
+            $('#' + popoverId).remove();
+
+            var url = '/team/portal/referral-link/' + positionId;
+
+            var $wrap = $('<div>', { id: popoverId }).html('loading...');
+
+            $.getJSON(url, function(result) {
+                $btn.data('opened', true);
+                var template = $('#popover_template').clone().html();
+                template = template.replace('{{referral_token}}', result.token);
+                $('#' + popoverId).html(template);
+            })
+
+            return $wrap
+        },
+        placement: 'bottom',
+        html: true
+    })*/
+
+});

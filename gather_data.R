@@ -17,10 +17,12 @@
 #     
 #     # Need to run this once before knitting to cache an authentication token
     # googlesheets4::sheets_auth()
+    googlesheets4::gs4_auth()
 #   }
   
   
   position_data <- read_sheet(positions_sheet_loc, sheet = "positions")
+  # position_data <- googlesheets4::range_read(positions_sheet_loc, sheet = "positions")
   skills        <- read_sheet(positions_sheet_loc, sheet = "language_skills")
   text_blocks   <- read_sheet(positions_sheet_loc, sheet = "text_blocks")
   contact_info  <- read_sheet(positions_sheet_loc, sheet = "contact_info", skip = 1)

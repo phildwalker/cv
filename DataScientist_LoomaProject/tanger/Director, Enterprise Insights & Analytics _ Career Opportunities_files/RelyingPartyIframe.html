@@ -1,0 +1,38 @@
+
+<!-- saved from url=(0103)https://recruiting.ultipro.com/TAN1001/JobBoard/488b307f-ccfb-4aaf-e789-f50f6e1d3253/RelyingPartyIframe -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./jquery"></script>
+
+</head>
+<body>
+            <iframe id="op" src="./checksession.html"></iframe>
+        <script>
+            var host = "https://login.ultipro.com";
+            var authorizeUrl = "/TAN1001/JobBoard/488b307f-ccfb-4aaf-e789-f50f6e1d3253/RelyingPartyIframe/AttemptToUpdateSessionState";
+            var clientId = "rec-prod-atl-77";
+            var sessionState = $.cookie("SessionState");
+
+            if (sessionState) {
+                var frame = document.getElementById("op");
+                frame.onload = function() {
+                    var op = frame.contentWindow;
+                    var timer = window.setInterval(function () {
+                        op.postMessage(clientId + " " + sessionState, host);
+                    }, 750);
+
+                    window.addEventListener("message", function (e) {
+                        if (e.origin === host) {
+                            if (e.data === "changed" || e.data === "error") {
+                                window.clearInterval(timer);
+                            }
+
+                            if (e.data === "changed") {
+                                window.location = authorizeUrl;
+                            }
+                        }
+                    });
+                };
+            }
+        </script>
+
+</body></html>
