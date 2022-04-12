@@ -1,0 +1,57 @@
+---
+title: "Cover Letter"
+author: "Phil Walker"
+output:
+  pagedown::html_letter:
+    self_contained: false
+    css: ['css/custom_letter.css']
+    # css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+links-to-footnotes: true
+paged-footnotes: true
+# uncomment this line to produce HTML and PDF in RStudio:
+#knit: pagedown::chrome_print
+---
+
+<!-- ![The RStudio logo](https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png){.logo} -->
+
+::: from
+Philip Walker   
+5802 Garden Village Ct, Apt C  
+Greensboro, NC 27410   
+Email: philwalker2012@gmail.com  
+<!-- Homepage: https://yihui.name -->
+:::
+
+
+Hiring Manager    
+1 Corporate Way  
+Lansing, MI 48951  
+
+::: date
+`r format(Sys.Date(), format="%B %d %Y")`
+:::
+
+Dear Hiring Manager,
+
+## About Me -------------------------------------------------------- {-}
+I am an Industrial Engineer (IE) by education (BS and MS from Cal Poly) who has had the good fortune to use my background in system driven thinking to drive improvements throughout all of my roles. I cherish opportunities to find creative solutions to the large scale challenges and through partnerships with the end customer, seeing those solutions implemented and benefits realized. As a Process Engineer for a manufacturing company, a Sr. Data Analyst within the financial industry, an Analytics Consultant within the healthcare industry, to currently as a Director of Insights and Analytics for a REIT, I have found that effective results come from partnering with the end user and driving robust solutions through data driven solutions.
+
+## Why HRIS Product Owner? {-}
+After learning more about the Product Owner role I am drawn to it, especially as it relates to harnessing the power of analytical tools to drive sustainable improvements which we then pass along to ensure our customers have the best possible service experience. In a world that seems to have constantly increasing uncertainty, I would be excited to work in a Data Management team who partners with teams throughout the organization to meet the challenges of tomorrow. I am also looking forward to the opportunity to not only learn from vast depth of knowledge of the Data Management team, but also ensuring that we find more and more ways to collaborate and empower each other to reach our full potentials at every stage of our careers.
+
+
+## Why Me? {-}
+I am a creative problem solver who brings to bear the disciplines of IE and analytics to develop robust action driven solutions. As I have in prior positions, I continue to find and quickly learn tools and techniques to help to provide better service to my customers. I learned R, SAS and Tableau within my prior roles when looking to address a gap and after meeting those immediate needs I have found ways to harness those tools to realize additional benefits. I then used what I learned to bring R to both of my teams at my prior two companies, which was incredibly rewarding to see my peers develop and grow more exponentially productive.
+
+Finally, I believe I would be a strong asset to the team by bringing my varied industry experience combined with my customer service mindset to the challenges of this management role. In my prior role at the financial services company, I facilitated the growth of our internship program from a single intern to four interns during my last summer (and then got to watch some of them come back for full time positions). I am especially proud of when I developed and implemented a training program which not only gave new team members an introduction to the role, skills needed, the organization and the company as a whole, but also integrated current team members allowing them to highlight their skill sets to ensure new team members started their career immediately empowered to be effective.
+
+
+<!-- ![Yihui's signature](https://user-images.githubusercontent.com/163582/47831497-c6656c00-dd5e-11e8-87b3-1f03fa97baa0.png)   -->
+Phil Walker 
+
+
+
+
+
+
+

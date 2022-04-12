@@ -188,7 +188,7 @@ position_data %>% print_section('positions')
 <!-- <br> -->
 <!-- <br> -->
 
-Recent Projects {data-icon=newspaper data-concise=true}
+Recent Projects and Fun Activities {data-icon=newspaper data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
