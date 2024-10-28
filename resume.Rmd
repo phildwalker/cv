@@ -53,10 +53,10 @@ links <- c()
 # text output and the other loads up our data from either googlesheets or csvs
 
 # Functions for building sections from CSV data
-source('parsing_functions.R') 
+source(here::here('parsing_functions.R')) 
 
 # Load data for CV/Resume
-source('gather_data.R')
+source(here::here('gather_data.R'))
 
 # Now we just need to filter down the position data to include less verbose
 # categories and only the entries we have designated for the resume

@@ -17,7 +17,7 @@
 #     
 #     # Need to run this once before knitting to cache an authentication token
     # googlesheets4::sheets_auth()
-    googlesheets4::gs4_auth()
+    googlesheets4::gs4_auth(email = "philwalker2012@gmail.com")
 #   }
   
   
